@@ -23,12 +23,12 @@ shutdown_all(){
 
 manage_group(){
 
-	domainfile="$1"
+	groupfile="$1"
 	groupname="$2"
 	operation="$3"
 
-	if [[ ! -f "$domainfile" ]]; then
-		echo "Domain file does not exist"
+	if [[ ! -f "$groupfile" ]]; then
+		echo "Group file does not exist"
 		exit 1
 	fi
 	
@@ -60,7 +60,7 @@ manage_group(){
 			if [[ "$MATCH" = true ]]; then
 				$virsh_command "$line" &> /dev/null
 			fi
-		done < "$domainfile"
+		done < "$groupfile"
 }
 
 show_help(){
