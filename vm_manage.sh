@@ -50,6 +50,10 @@ manage_group(){
 			restore_snapshot)
 				virsh_command="virsh snapshot-revert --snapshotname $snapshot_name --domain"
 				;;
+			*)
+				echo "Invalid option"
+				exit 1
+				;;
 	esac
 
 	MATCH=false
